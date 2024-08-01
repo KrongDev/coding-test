@@ -1,4 +1,4 @@
-package com.cordingTest.programers.level1;
+package com.codingTest.programers.level1;
 
 import java.io.BufferedReader;
 import java.io.IOException;

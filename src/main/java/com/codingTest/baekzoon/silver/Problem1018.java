@@ -1,4 +1,4 @@
-package com.cordingTest.baekzoon.silver;
+package com.codingTest.baekzoon.silver;
 
 import java.io.BufferedReader;
 import java.io.IOException;

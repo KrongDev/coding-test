@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class 가장_많이_받은_선물 {
+
     public static int solution(String[] friends, String[] gifts) {
 
         int len = friends.length;

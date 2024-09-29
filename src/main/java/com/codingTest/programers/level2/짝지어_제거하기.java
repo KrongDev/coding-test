@@ -9,17 +9,12 @@ public class 짝지어_제거하기 {
         stack.push(s.charAt(0));
         for(int i = 1; i < len; i++) {
             char now = s.charAt(i);
-            if (stack.isEmpty()) {
+            char prev = stack.pop();
+            if (stack.isEmpty() || now != prev) {
                 stack.push(now);
                 continue;
             }
 
-            char prev = stack.pop();
-
-            if(now == prev)
-                continue;
-
-            stack.push(prev);
             stack.push(now);
         }
 

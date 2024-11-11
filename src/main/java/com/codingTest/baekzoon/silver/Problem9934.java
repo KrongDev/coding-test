@@ -2,7 +2,7 @@ package com.codingTest.baekzoon.silver;
 
 import java.io.*;
 
-public class Problem9932 {
+public class Problem9934 {
 
     static StringBuilder[] sbs;
     static String[] strr;

@@ -1,5 +1,7 @@
 package com.codingTest.programers.level1;
 
+import java.math.BigInteger;
+
 public class 서울에서_김서방_찾기 {
     public String solution(String[] seoul) {
         int index = 0;

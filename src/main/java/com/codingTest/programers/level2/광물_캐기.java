@@ -25,6 +25,7 @@ public class 광물_캐기 {
             }
             mineralGroup[i][0] = condition;
         }
+
         Arrays.sort(mineralGroup, (o1, o2) -> o2[0] - o1[0]);
         int answer = 0;
         // 컨디션 계산

@@ -24,7 +24,7 @@ public class 영어_끝말잇기 {
             String prevWord = words[i - 1];
             String word = words[i];
 
-            if(validWord(prevWord, word)) {
+            if(isValidWord(prevWord, word)) {
                 answer[0] = i%n + 1;
                 answer[1] = i/n + 1;
                 return answer;
@@ -43,7 +43,7 @@ public class 영어_끝말잇기 {
      * 이전에 등장했던 단어는 사용할 수 없습니다.
      * 한 글자인 단어는 인정되지 않습니다.
      */
-    public boolean validWord(String prevWord, String word) {
+    public boolean isValidWord(String prevWord, String word) {
         if(word.isEmpty() || word.length() == 1) {
             return true;
         }

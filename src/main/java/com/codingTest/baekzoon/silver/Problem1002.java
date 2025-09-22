@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class Problem1002 {
+
+
     /**
      * 백준 1002 터렛
      * 원 두개가 존재하고 해당 원들이 겹치는 부분을 체크하여 몇개의 부분이 겹치는지 알려줘야한다.

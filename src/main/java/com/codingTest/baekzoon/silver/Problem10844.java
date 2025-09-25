@@ -14,7 +14,6 @@ public class Problem10844 {
             dp[1][i] = 1;
         }
 
-        // 2. DP 테이블 채우기 (길이 2부터 N까지)
         for (int i = 2; i <= N; i++) {
             dp[i][0] = dp[i - 1][1] % mod;
             dp[i][9] = dp[i - 1][8] % mod;

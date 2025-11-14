@@ -1,3 +1,5 @@
+package com.codingTest.programers.level2;
+
 class 조이스틱 {
     private boolean[] map;
         

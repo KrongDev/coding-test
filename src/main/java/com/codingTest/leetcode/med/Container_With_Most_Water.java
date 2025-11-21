@@ -1,4 +1,4 @@
-package com.codingTest.leetcode.easy;
+package com.codingTest.leetcode.med;
 
 public class Container_With_Most_Water {
     private int[] height;

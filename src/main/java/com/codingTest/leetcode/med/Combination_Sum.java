@@ -12,19 +12,19 @@ public class Combination_Sum {
         return res;
     }
 
-    private void dp(int[] candidates, int target, int index, int total, List<Integer> burket) {
+    private void dp(int[] candidates, int target, int index, int total, List<Integer> basket) {
         if (total > target) return;
         if (total == target) {
-            this.res.add(new ArrayList<>(burket));
+            this.res.add(new ArrayList<>(basket));
             return;
         }
 
         int len = candidates.length;
         for (int i = index; i < len; i++) {
             int current = candidates[i];
-            burket.add(current);
-            dp(candidates, target, i, total + current, burket);
-            burket.remove(burket.size() - 1);
+            basket.add(current);
+            dp(candidates, target, i, total + current, basket);
+            basket.remove(basket.size() - 1);
         }
     }
 }

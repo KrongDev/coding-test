@@ -1,13 +1,10 @@
 name: Move LeetCode Solutions
 
 on:
-  workflow_dispatch:  # 수동 실행 옵션 유지
+  workflow_dispatch:
   push:
     paths:
-      - '[0-9][0-9][0-9][0-9]-*/**'  # LeetHub가 생성하는 폴더 패턴 (예: 0020-valid-parentheses)
-
-permissions:
-  contents: write
+      - '[0-9][0-9][0-9][0-9]-*/**'
 
 jobs:
   move-files:
@@ -16,14 +13,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0 # 전체 기록을 가져와야 커밋 및 푸시가 안정적으로 동작
+          fetch-depth: 0
 
       - name: Configure Git
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
-      - name: Move LeetCode solutions
+      - name: Install rsync (for robust directory merging)
+        run: sudo apt-get update && sudo apt-get install -y rsync
+
+      - name: Merge and Clean LeetCode solutions
         id: move
         run: |
           TARGET_PATH="src/main/java/com/codingTest/leetcode"
@@ -34,37 +34,46 @@ jobs:
           
           found_move=0
           
-          # LeetHub가 생성한 폴더들을 순회합니다. (예: 0020-valid-parentheses)
+          # LeetHub가 생성한 폴더들을 순회합니다. (예: 0058-length-of-last-word)
           for d in [0-9][0-9][0-9][0-9]-*; do
             if [ -d "$d" ]; then
-              echo "Moving directory: $d to $TARGET_PATH/"
           
-              # 해당 디렉토리를 목표 경로로 이동
-              mv "$d" "$TARGET_PATH/"
+              DEST_DIR="$TARGET_PATH/$d"
+          
+              if [ -d "$DEST_DIR" ]; then
+                # --- [핵심 로직: 병합 및 덮어쓰기] ---
+                echo "Merging contents of $d into existing directory $DEST_DIR"
+          
+                # rsync를 사용하여 원본 디렉토리의 모든 내용물(d/)을 대상 디렉토리(DEST_DIR/)로 복사 (덮어쓰기 포함)
+                # -a: 아카이브 모드 (권한, 타임스탬프 등 유지)
+                # -v: 자세한 출력
+                rsync -av "$d/" "$DEST_DIR/"
+          
+                # 병합 후, 원본 디렉토리 삭제
+                rm -rf "$d"
+                echo "Source directory $d removed after merge."
+                # ------------------------------------
+              else
+                # --- [단순 이동] ---
+                echo "Moving directory: $d to $TARGET_PATH/"
+                mv "$d" "$TARGET_PATH/"
+                # -----------------
+              fi
+          
               found_move=1
             fi
           done
           
-          # 이동할 폴더를 찾지 못했을 경우
           if [ $found_move -eq 0 ]; then
             echo "No matching directories found to move."
           fi
           
-          # 다음 단계에서 커밋이 필요한지 판단하기 위해 상태 설정
           echo "needs_commit=$found_move" >> $GITHUB_OUTPUT
 
       - name: Commit & Push changes
         if: steps.move.outputs.needs_commit == '1'
         run: |
-          # 변경사항이 있는지 확인
-          if git status --porcelain | grep .; then
-            git config --global user.name 'github-actions[bot]'
-            git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-            git add -A
-            git commit -m "chore: Organize LeetCode solutions (Automated Move)"
-          
-            git push --force 
-            # ------------------------------------
-          else
-            echo "No changes to commit"
-          fi
+          git add -A
+          git commit -m "chore: Organize LeetCode solutions (Automated Merge/Move)"
+          # 이전의 non-fast-forward 오류 해결을 위해 --force 사용
+          git push --force

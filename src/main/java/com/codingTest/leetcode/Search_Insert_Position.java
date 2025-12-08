@@ -1,7 +1,4 @@
-package com.codingTest.leetcode.easy;
-
-import java.util.LinkedList;
-import java.util.Queue;
+package com.codingTest.leetcode;
 
 public class Search_Insert_Position {
     // 조건보고 잘못된 삽질

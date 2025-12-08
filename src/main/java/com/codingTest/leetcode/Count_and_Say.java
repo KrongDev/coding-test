@@ -1,4 +1,4 @@
-package com.codingTest.leetcode.med;
+package com.codingTest.leetcode;
 
 public class Count_and_Say {
 

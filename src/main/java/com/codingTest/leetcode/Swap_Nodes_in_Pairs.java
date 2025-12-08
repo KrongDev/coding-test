@@ -1,4 +1,4 @@
-package com.codingTest.leetcode.med;
+package com.codingTest.leetcode;
 
 public class Swap_Nodes_in_Pairs {
 

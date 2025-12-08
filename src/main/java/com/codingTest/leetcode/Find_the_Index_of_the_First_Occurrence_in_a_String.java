@@ -1,4 +1,4 @@
-package com.codingTest.leetcode.easy;
+package com.codingTest.leetcode;
 
 public class Find_the_Index_of_the_First_Occurrence_in_a_String {
     private boolean isEquals(String haystack, String needle, int istart) {

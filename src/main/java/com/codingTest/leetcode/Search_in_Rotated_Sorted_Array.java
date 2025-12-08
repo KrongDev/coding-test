@@ -1,4 +1,4 @@
-package com.codingTest.leetcode.med;
+package com.codingTest.leetcode;
 
 public class Search_in_Rotated_Sorted_Array {
     public int search(int[] nums, int target) {

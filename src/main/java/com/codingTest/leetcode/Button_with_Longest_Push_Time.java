@@ -1,4 +1,4 @@
-package com.codingTest.leetcode.easy;
+package com.codingTest.leetcode;
 
 public class Button_with_Longest_Push_Time {
     public int buttonWithLongestTime(int[][] events) {

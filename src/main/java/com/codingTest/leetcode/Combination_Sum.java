@@ -1,4 +1,4 @@
-package com.codingTest.leetcode.med;
+package com.codingTest.leetcode;
 
 import java.util.List;
 import java.util.ArrayList;

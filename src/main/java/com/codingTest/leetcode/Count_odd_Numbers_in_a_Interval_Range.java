@@ -1,4 +1,4 @@
-package com.codingTest.leetcode.easy;
+package com.codingTest.leetcode;
 
 public class Count_odd_Numbers_in_a_Interval_Range {
     public int countOdds(int low, int high) {

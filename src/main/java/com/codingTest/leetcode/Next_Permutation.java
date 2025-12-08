@@ -1,4 +1,4 @@
-package com.codingTest.leetcode.med;
+package com.codingTest.leetcode;
 
 public class Next_Permutation {
     public void nextPermutation(int[] nums) {

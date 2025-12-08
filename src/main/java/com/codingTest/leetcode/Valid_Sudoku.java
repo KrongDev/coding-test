@@ -1,4 +1,4 @@
-package com.codingTest.leetcode.med;
+package com.codingTest.leetcode;
 
 public class Valid_Sudoku {
     private final int n = 9, m = 10;

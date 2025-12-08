@@ -1,4 +1,4 @@
-package com.codingTest.leetcode.easy;
+package com.codingTest.leetcode;
 
 public class Remove_Element {
     public int removeElement(int[] nums, int val) {

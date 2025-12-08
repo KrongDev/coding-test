@@ -1,4 +1,4 @@
-package com.codingTest.leetcode.easy;
+package com.codingTest.leetcode;
 
 public class Count_Square_Sum_Triples {
     public int countTriples(int n) {

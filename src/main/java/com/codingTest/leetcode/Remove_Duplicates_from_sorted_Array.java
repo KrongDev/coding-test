@@ -1,4 +1,4 @@
-package com.codingTest.leetcode.easy;
+package com.codingTest.leetcode;
 
 public class Remove_Duplicates_from_sorted_Array {
     public int removeDuplicates(int[] nums) {

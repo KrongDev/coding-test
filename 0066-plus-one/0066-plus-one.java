@@ -10,19 +10,10 @@ class Solution {
             i--;
         }
         if(carry == 1) {
-            int[] res = copy(digits);
+            int[] res = new int[len + 1];
             res[0] = 1;
             return res;
         } 
         return digits;
-    }
-
-    private int[] copy(int[] arr) {
-        int[] res = new int[arr.length + 1];
-
-        for(int i = 0; i < arr.length; i++) {
-            res[i + 1] = arr[i];
-        }
-        return res;
     }
 }

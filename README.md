@@ -9,6 +9,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 ## String
 |  |
 | ------- |
+| [0058-length-of-last-word](https://github.com/KrongDev/coding-test/tree/master/0058-length-of-last-word) |
 | [0067-add-binary](https://github.com/KrongDev/coding-test/tree/master/0067-add-binary) |
 ## Bit Manipulation
 |  |

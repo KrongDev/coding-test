@@ -1,4 +1,4 @@
-name: Move LeetCode Solutions by Difficulty
+name: Move LeetCode Solutions
 
 on:
   workflow_dispatch:  # 수동 실행 옵션 유지
@@ -13,80 +13,46 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
         with:
-          # 모든 파일 이동을 위해 전체 커밋 기록을 가져올 필요는 없지만,
-          # 현재 파일 시스템 상태를 위해 최신 상태를 체크아웃합니다.
-          fetch-depth: 0
+          fetch-depth: 0 # 전체 기록을 가져와야 커밋 및 푸시가 안정적으로 동작
 
       - name: Configure Git
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
-      - name: Setup Directory Structure and Move Solutions
+      - name: Move LeetCode solutions
         id: move
         run: |
-          BASE_PATH="coding-test/src/main/java/com/codingTest/leetcode"
+          TARGET_PATH="src/main/java/com/codingTest/leetcode"
           
-          # 기본 디렉토리 구조 생성
-          mkdir -p "${BASE_PATH}/easy"
-          mkdir -p "${BASE_PATH}/med"
-          mkdir -p "${BASE_PATH}/hard"
-          
-          echo "Processing directories..."
+          # 목표 디렉토리가 없다면 생성
+          mkdir -p "$TARGET_PATH"
+          echo "Target directory created: $TARGET_PATH"
           
           found_move=0
           
-          # LeetHub가 생성한 폴더를 순회합니다. (예: 0020-valid-parentheses)
+          # LeetHub가 생성한 폴더들을 순회합니다. (예: 0020-valid-parentheses)
           for d in [0-9][0-9][0-9][0-9]-*; do
             if [ -d "$d" ]; then
+              echo "Moving directory: $d to $TARGET_PATH/"
           
-              # LeetHub 폴더 이름에서 난이도 파일을 찾습니다. (예: 0020-valid-parentheses/Difficulty.txt)
-              # LeetHub는 난이도 파일을 생성하는 기능이 없으므로,
-              # 이 워크플로우를 사용하려면 사용자가 난이도 파일을 미리 넣어두어야 합니다.
-          
-              # === 중요: 난이도 파일 읽기 ===
-              # 솔루션 폴더 내부에 난이도 파일(예: Difficulty.txt)이 있다고 가정합니다.
-              DIFFICULTY_FILE="${d}/Difficulty.txt"
-          
-              if [ -f "$DIFFICULTY_FILE" ]; then
-                DIFFICULTY=$(cat "$DIFFICULTY_FILE" | tr '[:upper:]' '[:lower:]' | xargs) # 소문자 변환 및 공백 제거
-          
-                TARGET_DIR=""
-          
-                case "$DIFFICULTY" in
-                  easy)
-                    TARGET_DIR="${BASE_PATH}/easy"
-                    ;;
-                  medium)
-                    TARGET_DIR="${BASE_PATH}/medium"
-                    ;;
-                  hard)
-                    TARGET_DIR="${BASE_PATH}/hard"
-                    ;;
-                  *)
-                    echo "Warning: Unknown difficulty '$DIFFICULTY' found in $DIFFICULTY_FILE. Skipping move."
-                    continue
-                    ;;
-                esac
-
-                # 대상 디렉토리로 이동
-                echo "Moving $d (Difficulty: $DIFFICULTY) to $TARGET_DIR/"
-                mv "$d" "$TARGET_DIR/"
-                found_move=1
-          
-              else
-                echo "Warning: Difficulty file not found at $DIFFICULTY_FILE. Skipping move for $d."
-              fi
+              # 해당 디렉토리를 목표 경로로 이동
+              mv "$d" "$TARGET_PATH/"
+              found_move=1
             fi
           done
-
+          
+          # 이동할 폴더를 찾지 못했을 경우
+          if [ $found_move -eq 0 ]; then
+            echo "No matching directories found to move."
+          fi
+          
           # 다음 단계에서 커밋이 필요한지 판단하기 위해 상태 설정
           echo "needs_commit=$found_move" >> $GITHUB_OUTPUT
-
 
       - name: Commit & Push changes
         if: steps.move.outputs.needs_commit == '1'
         run: |
           git add -A
-          git commit -m "chore: Organize LeetCode solutions by difficulty"
+          git commit -m "chore: Move LeetCode solutions to $TARGET_PATH"
           git push

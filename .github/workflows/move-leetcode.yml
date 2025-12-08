@@ -56,6 +56,15 @@ jobs:
       - name: Commit & Push changes
         if: steps.move.outputs.needs_commit == '1'
         run: |
-          git add -A
-          git commit -m "chore: Move LeetCode solutions to $TARGET_PATH"
-          git push
+          # 변경사항이 있는지 확인
+          if git status --porcelain | grep .; then
+            git config --global user.name 'github-actions[bot]'
+            git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+            git add -A
+            git commit -m "chore: Organize LeetCode solutions (Automated Move)"
+          
+            git push --force 
+            # ------------------------------------
+          else
+            echo "No changes to commit"
+          fi

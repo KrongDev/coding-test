@@ -86,3 +86,45 @@
 	<li><code>3 &lt;= n == nums.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>0 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+
+### 목표 코드
+```java
+class Solution {
+    public int specialTriplets(int[] nums) {
+        int n = nums.length;
+        int maxVal = 0;
+        int i = 0;
+        while (i < n) {
+            if (nums[i] > maxVal)
+                maxVal = nums[i];
+            i++;
+        }
+        int maxD = maxVal * 2;
+        int[] before = new int[maxD + 1];
+        int[] after = new int[maxD + 1];
+        int j = 0;
+        while (j < n) {
+            after[nums[j]]++;
+            j++;
+        }
+        long res = 0L;
+        int mod = 1000000007;
+        int idx = 0;
+        while (idx < n) {
+            int v = nums[idx];
+            after[v]--;
+            int t = v + v;
+            if (t <= maxD) {
+                res += (long) before[t] * after[t];
+                if (res >= Integer.MAX_VALUE)
+                    res %= mod;
+            }
+            before[v]++;
+            idx++;
+        }
+        res %= mod;
+        return (int) res;
+    }
+}
+```

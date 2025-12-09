@@ -41,7 +41,11 @@ jobs:
           for d in [0-9][0-9][0-9][0-9]-*; do
             if [ -d "$d" ]; then
           
-              DEST_DIR="$TARGET_PATH/$d"
+              NEW_NAME="${d#*-}" 
+              DEST_DIR="$TARGET_PATH/$NEW_NAME"
+          
+              echo "Processing source directory: $d"
+              echo "Calculated destination directory name: $NEW_NAME"
           
               if [ -d "$DEST_DIR" ]; then
                 # --- [핵심 로직: 병합 및 덮어쓰기] ---

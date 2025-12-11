@@ -16,4 +16,19 @@ class Solution {
         }
         return i;
     }
+
+    /**
+     * 개선방향
+     * 코드 복잡도가 훨씬 간소한거 같다.
+     * public int removeDuplicates(int[] nums) {
+     *         int k=2;
+     *         for(int i=2;i<nums.length;i++){
+     *             if(nums[i]!=nums[k-2]){
+     *                 nums[k] = nums[i];
+     *                 k++;
+     *             }
+     *         }
+     *         return k;
+     *     }
+     */
 }

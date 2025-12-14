@@ -9,4 +9,8 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0080-remove-duplicates-from-sorted-array-ii](https://github.com/KrongDev/coding-test/tree/master/0080-remove-duplicates-from-sorted-array-ii) |
+## Database
+|  |
+| ------- |
+| [0584-find-customer-referee](https://github.com/KrongDev/coding-test/tree/master/0584-find-customer-referee) |
 <!---LeetCode Topics End-->

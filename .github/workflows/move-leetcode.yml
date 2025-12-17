@@ -76,7 +76,6 @@ jobs:
       - name: Commit & Push changes
         if: steps.move.outputs.needs_commit == '1'
         run: |
-          git pull
           git add -A
           git commit -m "chore: Organize LeetCode solutions (Automated Merge/Move)"
           # 이전의 non-fast-forward 오류 해결을 위해 --force 사용

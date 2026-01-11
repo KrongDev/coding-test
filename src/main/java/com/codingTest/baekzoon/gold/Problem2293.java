@@ -6,7 +6,7 @@ import java.util.StringTokenizer;
 /**
  * ▣ 문제: 백준: 2293 - 동전 1
  * ▣ 알고리즘: DP
- * ▣ 시간 복잡도: O(N)
+ * ▣ 시간 복잡도: O(N*k)
  * * [풀이 전략]
  * 1.
  * 2.

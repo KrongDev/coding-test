@@ -7,9 +7,9 @@
 | 플랫폼 | 풀이 수 | 구성 |
 | --- | ---: | --- |
 | 백준 | 119 | 브론즈 15 · 실버 83 · 골드 21 |
-| 프로그래머스 | 91 | Level 1 51 · Level 2 27 · Level 3 4 · Level 4 1 · PCCP 모의고사 1회 7 · 기타 1 |
+| 프로그래머스 | 92 | Level 1 52 · Level 2 27 · Level 3 4 · Level 4 1 · PCCP 모의고사 1회 7 · 기타 1 |
 | LeetCode | 70 | 문제별 폴더 37 · 단일 파일 33 |
-| **합계** | **280** | |
+| **합계** | **281** | |
 
 ## 📁 구조
 
@@ -172,11 +172,12 @@ src/main/java/com/codingTest/
 ### 프로그래머스
 
 <details>
-<summary>Level 1 (51)</summary>
+<summary>Level 1 (52)</summary>
 
 - [x만큼 간격이 있는 n개의 숫자](src/main/java/com/codingTest/programers/level1/x만큼_간격이_있는_n개의_숫자.java)
 - [가운데 글자 가져오기](src/main/java/com/codingTest/programers/level1/가운데_글자_가져오기.java)
 - [가장 많이 받은 선물](src/main/java/com/codingTest/programers/level1/가장_많이_받은_선물.java)
+- [가장 비싼 상품 구하기](src/main/java/com/codingTest/programers/level1/가장_비싼_상품_구하기.sql)
 - [개인정보 수집 유효기간](src/main/java/com/codingTest/programers/level1/개인정보_수집_유효기간.java)
 - [과일 장수](src/main/java/com/codingTest/programers/level1/과일_장수.java)
 - [기사단원의 무기](src/main/java/com/codingTest/programers/level1/기사단원의_무기.java)

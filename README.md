@@ -7,9 +7,9 @@
 | 플랫폼 | 풀이 수 | 구성 |
 | --- | ---: | --- |
 | 백준 | 119 | 브론즈 15 · 실버 83 · 골드 21 |
-| 프로그래머스 | 92 | Level 1 52 · Level 2 27 · Level 3 4 · Level 4 1 · PCCP 모의고사 1회 7 · 기타 1 |
+| 프로그래머스 | 93 | Level 1 53 · Level 2 27 · Level 3 4 · Level 4 1 · PCCP 모의고사 1회 7 · 기타 1 |
 | LeetCode | 70 | 문제별 폴더 37 · 단일 파일 33 |
-| **합계** | **281** | |
+| **합계** | **282** | |
 
 ## 📁 구조
 
@@ -172,7 +172,7 @@ src/main/java/com/codingTest/
 ### 프로그래머스
 
 <details>
-<summary>Level 1 (52)</summary>
+<summary>Level 1 (53)</summary>
 
 - [x만큼 간격이 있는 n개의 숫자](src/main/java/com/codingTest/programers/level1/x만큼_간격이_있는_n개의_숫자.java)
 - [가운데 글자 가져오기](src/main/java/com/codingTest/programers/level1/가운데_글자_가져오기.java)
@@ -226,6 +226,7 @@ src/main/java/com/codingTest/
 - [하샤드 수](src/main/java/com/codingTest/programers/level1/하샤드_수.java)
 - [햄버거 만들기](src/main/java/com/codingTest/programers/level1/햄버거_만들기.java)
 - [행렬의 덧셈](src/main/java/com/codingTest/programers/level1/행렬의_덧셈.java)
+- [흉부외과 또는 일반외과 의사 목록 출력하기](src/main/java/com/codingTest/programers/level1/흉부외과_또는_일반외과_의사_목록_출력하기.sql)
 
 </details>
 

@@ -7,9 +7,9 @@
 | 플랫폼 | 풀이 수 | 구성 |
 | --- | ---: | --- |
 | 백준 | 119 | 브론즈 15 · 실버 83 · 골드 21 |
-| 프로그래머스 | 93 | Level 1 53 · Level 2 27 · Level 3 4 · Level 4 1 · PCCP 모의고사 1회 7 · 기타 1 |
+| 프로그래머스 | 94 | Level 1 54 · Level 2 27 · Level 3 4 · Level 4 1 · PCCP 모의고사 1회 7 · 기타 1 |
 | LeetCode | 70 | 문제별 폴더 37 · 단일 파일 33 |
-| **합계** | **282** | |
+| **합계** | **283** | |
 
 ## 📁 구조
 
@@ -172,7 +172,7 @@ src/main/java/com/codingTest/
 ### 프로그래머스
 
 <details>
-<summary>Level 1 (53)</summary>
+<summary>Level 1 (54)</summary>
 
 - [x만큼 간격이 있는 n개의 숫자](src/main/java/com/codingTest/programers/level1/x만큼_간격이_있는_n개의_숫자.java)
 - [가운데 글자 가져오기](src/main/java/com/codingTest/programers/level1/가운데_글자_가져오기.java)
@@ -210,6 +210,7 @@ src/main/java/com/codingTest/
 - [옹알이 2](src/main/java/com/codingTest/programers/level1/옹알이_2.java)
 - [완주하지 못한 선수](src/main/java/com/codingTest/programers/level1/완주하지_못한_선수.java)
 - [이상한 문자 만들기](src/main/java/com/codingTest/programers/level1/이상한_문자_만들기.java)
+- [인기있는 아이스크림](src/main/java/com/codingTest/programers/level1/인기있는_아이스크림.sql)
 - [정수 내림차순으로 배치하기](src/main/java/com/codingTest/programers/level1/정수_내림차순으로_배치하기.java)
 - [정수 제곱근 판별](src/main/java/com/codingTest/programers/level1/정수_제곱근_판별.java)
 - [제일 작은 수 제거하기](src/main/java/com/codingTest/programers/level1/제일_작은_수_제거하기.java)
